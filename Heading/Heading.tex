@@ -1,0 +1,23 @@
+\fancyhf{} % Limpa todos os cabeçalhos e rodapés atuais
+
+% --- CABEÇALHO PADRÃO PARA TODAS AS PÁGINAS ---
+\lhead{$\vcenter{\hbox{\includegraphics[height=1.4cm]{Heading/Logo_CI_Inovador.png}}}$\vspace{6pt}}
+\rhead{$\vcenter{\hbox{\includegraphics[height=1.4cm]{Heading/Logo_UFPR.png}}}$\vspace{6pt}}
+
+% --- RODAPÉ ---
+\lfoot{\small Curso de Especialização em Microeletrônica - Lato Sensu -- UFSM -- Polo UFPR GICS}
+\rfoot{\small Página \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- REDEFINIÇÃO DO ESTILO PLAIN (PRIMEIRA PÁGINA) ---
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \lhead{$\vcenter{\hbox{\includegraphics[height=1.4cm]{Heading/Logo_CI_Inovador.png}}}$\vspace{6pt}}
+  \rhead{$\vcenter{\hbox{\includegraphics[height=1.4cm]{Heading/Logo_UFPR.png}}}$\vspace{6pt}}
+  \lfoot{\small Curso de Especialização em Microeletrônica - Lato Sensu -- UFSM -- Polo UFPR GICS}
+  \rfoot{\small Página \thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}

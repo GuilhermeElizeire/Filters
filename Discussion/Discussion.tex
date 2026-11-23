@@ -1,0 +1,72 @@
+% =================================================================
+% SEÇÃO DE PERGUNTAS DO ROTEIRO
+% =================================================================
+\section{Perguntas}
+import numpy as np
+
+# ==========================================
+# 1. PARÂMETROS DO CIRCUITO (f = 2 MHz)
+# ==========================================
+f = 2e6                  # Frequência de operação (2 MHz)
+w = 2 * np.pi * f        # Frequência angular (rad/s)
+
+R_sig = 50.0             # Resistência da fonte de sinal (Ohms)
+R_L = 2000.0             # Resistência de carga no item 1.b (Ohms)
+gm = 8.42e-3             # Transcondutância do NMOS (A/V)
+ro = 25e3                # Resistência de saída intrínseca do NMOS (Ohms)
+
+# ==========================================
+# 2. DIMENSIONAMENTO ANALÍTICO (MARGEM >= 99% DO GANHO)
+# ==========================================
+# Critério: X_C <= R / fator  e  X_L >= fator * R
+Cin_min = 10 / (w * R_sig)          # X_Cin <= 5 Ohms
+Lin_min = (100 * R_sig) / w         # X_Lin >= 5 kOhms
+Cout_min = 100 / (w * R_L)          # X_Cout <= 20 Ohms
+Lout_min_RL = (100 * R_L) / w       # Para operação com RL = 2 kOhms
+Lout_min_aberto = (50 * ro) / w     # Para operação em aberto (item 1.c, sem RL)
+
+print("=== VALORES MÍNIMOS CALCULADOS (f = 2 MHz) ===")
+print(f"Cin  mínimo : {Cin_min*1e9:.2f} nF  -> Sugerido: 100 nF a 1 uF")
+print(f"Cout mínimo : {Cout_min*1e9:.2f} nF  -> Sugerido: 100 nF a 1 uF")
+print(f"Lin  mínimo : {Lin_min*1e3:.2f} mH  -> Sugerido: 1 mH a 10 mH")
+print(f"Lout mínimo (com RL)   : {Lout_min_RL*1e3:.2f} mH -> Sugerido: 20 mH")
+print(f"Lout mínimo (sem RL)   : {Lout_min_aberto*1e3:.2f} mH -> Sugerido: 100 mH\n")
+
+# ==========================================
+# 3. VERIFICAÇÃO DO GANHO EXATO COM OS VALORES ESCOLHIDOS
+# ==========================================
+def calcular_ganho(Cin, Cout, Lin, Lout, RL=R_L, gm_val=gm, ro_val=ro):
+    # Impedâncias complexas em j*w
+    Z_Cin = 1 / (1j * w * Cin)
+    Z_Lin = 1j * w * Lin
+    Z_Cout = 1 / (1j * w * Cout)
+    Z_Lout = 1j * w * Lout
+
+    # Divisor de tensão na entrada (considerando porta do MOSFET em aberto em 2 MHz)
+    H_in = Z_Lin / (R_sig + Z_Cin + Z_Lin)
+
+    # Impedância de carga vista pelo dreno: ro || Lout || (Cout + RL)
+    if RL is None or np.isinf(RL):
+        # Circuito aberto (item 1.c): dreno vê apenas ro || Lout
+        Z_dreno = 1 / (1/ro_val + 1/Z_Lout)
+        H_out = 1.0
+    else:
+        Z_ramo_RL = Z_Cout + RL
+        Z_dreno = 1 / (1/ro_val + 1/Z_Lout + 1/Z_ramo_RL)
+        H_out = RL / Z_ramo_RL
+
+    Av = -gm_val * Z_dreno * H_in * H_out
+    return np.abs(Av)
+
+# Teste com os valores ideais escolhidos no Cadence
+Av_ideal_RL = gm * (ro * R_L / (ro + R_L))
+Av_sim_RL = calcular_ganho(Cin=1e-6, Cout=1e-6, Lin=10e-3, Lout=100e-3, RL=R_L)
+
+# Teste em circuito aberto (item 1.c, onde gm * ro = 60)
+gm_item_c = 60 / ro
+Av_sim_aberto = calcular_ganho(Cin=1e-6, Cout=1e-6, Lin=10e-3, Lout=100e-3, RL=np.inf, gm_val=gm_item_c)
+
+print("=== VERIFICAÇÃO DE GANHO ===")
+print(f"Ganho teórico assintótico (com RL=2k) : {Av_ideal_RL:.2f} V/V")
+print(f"Ganho com C=1u, Lin=10m, Lout=100m    : {Av_sim_RL:.2f} V/V ({Av_sim_RL/Av_ideal_RL*100:.2f}% do ideal)")
+print(f"Ganho em aberto (item 1.c, alvo = 60) : {Av_sim_aberto:.2f} V/V")

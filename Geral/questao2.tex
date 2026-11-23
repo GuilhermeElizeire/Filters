@@ -1,0 +1,45 @@
+
+\subsection{Questão 2 -- Amplificador Fonte-Comum com Transistor PMOS}
+
+\subsubsection{Item 2.a -- Esquemático Proposto e Dimensionamento Passivo}
+
+O esquemático do estágio amplificador fonte-comum utilizando transistor PMOS está representado na Figura~\ref{fig:esquematico_pmos}.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[american voltages, line width=1.1pt]
+        \ctikzset{tripoles/mos style/arrows}
+        
+        % --- Transistor PMOS invertido verticalmente (Source em cima, Drain em baixo) ---
+        \draw (6,2.2) node[pmos](M1){};
+        % Garante ligação do bulk ao source (nó superior)
+        
+        % --- Malha de Entrada (a cinza: v_Sig com + em cima e R_Sig) ---
+        \draw[black] (0,2.2) to[V, l=${v_{Sig}}$, color=black] (0,0) node[ground]{};
+        \draw[black] (0,2.2) to[R, l=${\mathcal{R}_{Sig}}$, color=black] (1.8,2.2);
+
+        % --- Capacitor Cin e Terminal v_in (azul) ---
+        \draw (1.8,2.2) to[C] (3.4,2.2) -- (6,2.2);
+        \draw (3.4,2.2) -- (3.4,2.9) node[ocirc, label={[blue]above:\large $v_{in}$}]{};
+
+        % --- Indutor Lin e barra V_Bias ---
+        \draw (4.7,2.2) to[L] (4.7,4.6);
+        \draw (4.1,4.6) -- (5.3,4.6) node[midway, above]{$\text{V}_{\text{Bias}}$};
+
+        % --- Indutor Lout e barra V_DD (alinhados exatamente com M1.S) ---
+        \draw (M1.S) -- (M1.S |- 0,3.2) to[L] (M1.S |- 0,5.2);
+        \draw ($(M1.S |- 0,5.2)+(-0.6,0)$) -- ($(M1.S |- 0,5.2)+(0.6,0)$) node[midway, above]{$\text{V}_{\text{DD}}$};
+
+        % --- Ligação do Dreno ao Terra (alinhada com M1.D) ---
+        \draw (M1.D) -- (M1.D |- 0,0) node[ground]{};
+
+        % --- Saída: Capacitor Cout, Carga RL (cinza) e Terminal v_out (azul) ---
+        \coordinate (outNode) at (M1.S |- 0,3.1);
+        \draw (outNode) to[C] ($(outNode)+(2.0,0)$) -- ($(outNode)+(3.4,0)$)
+            node[ocirc, label={[blue]above:\large $v_{out}$}]{};
+        \draw[black] ($(outNode)+(2.3,0)$) to[R, l=${\mathcal{R}_L}$, color=black] ($(outNode)+(2.3,-2.4)$)
+            node[ground, color=black]{};
+    \end{circuitikz}
+    \caption{Esquemático do amplificador fonte-comum com transistor PMOS.}
+    \label{fig:esquematico_pmos}
+\end{figure}

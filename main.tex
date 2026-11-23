@@ -1,0 +1,91 @@
+% =================================================================
+% DOCUMENTO PRINCIPAL (main.tex)
+% =================================================================
+\documentclass[10pt,a4paper]{article}
+
+% --- PACOTES DE LAYOUT E MARGENS ---
+\usepackage[top=1.2cm, bottom=2.0cm, left=1.5cm, right=1.5cm, headheight=46pt, headsep=0.4cm, includehead]{geometry}
+
+% --- PACOTES DE IDIOMA E FONTE ---
+\usepackage[T1]{fontenc}               % Codificação de fonte vetorial
+\usepackage[utf8]{inputenc}            % Suporte a acentuação
+\usepackage[brazilian]{babel}          % Idioma em português do Brasil
+\usepackage{newtxtext, newtxmath}      % Fonte padrão Times (texto e matemática)
+\usepackage{parskip} % já aplica o padrão moderno automaticamente (~6pt de espaço e 0pt de recuo)
+
+
+% --- PACOTES GRÁFICOS, TABELAS E LISTAS ---
+\usepackage{graphicx}                  % Inclusão de imagens e logos
+\usepackage{booktabs}                  % Tabelas limpas
+\usepackage{float}                     % Controle de posição de figuras
+\usepackage{enumitem}                  % Suporte estendido a listas (itemize/enumerate)
+\setlist{nosep, leftmargin=*}
+
+% --- CRIAÇÃO DO AMBIENTE PERSONALIZADO "GRAFICO" ---
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[
+    fileext=log,
+    listname={Lista de Gráficos},
+    name=Gráfico,
+    placement=htbp,
+]{grafico}
+
+% --- PACOTES MATEMÁTICOS E UNIDADES ---
+\usepackage{amsmath, amsfonts}         % Equações e símbolos básicos
+\let\Bbbk\undefined                    % Evita conflito do símbolo \Bbbk
+\usepackage{amssymb}                   % Símbolos matemáticos adicionais
+\usepackage{siunitx}                   % Formatação de unidades
+\sisetup{output-decimal-marker = {,}}
+
+% --- PACOTES DE DESENHO E CIRCUITOS ---
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+
+% --- PACOTES DE CITAÇÃO E LINKS ---
+\usepackage{cite}                      % Citações numéricas
+\usepackage{xurl}                      % Quebra de linha em URLs
+\usepackage[hidelinks]{hyperref}       % Links invisíveis e metadados no PDF
+
+% --- PACOTES DE CABEÇALHO E TIPOGRAFIA ---
+\usepackage{fancyhdr}                  % Cabeçalhos e rodapés customizados
+\usepackage[expansion=false]{microtype}% Ajuste tipográfico
+\usepackage{caption}
+\usepackage{subcaption}                % Suporte para o ambiente subfigure
+
+% --- CONFIGURAÇÕES DE FLUTUAÇÃO DE IMAGENS E LEGENDAS ---
+\raggedbottom                          
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}      
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}  
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}     
+\setlength{\abovecaptionskip}{4pt}                 
+\setlength{\belowcaptionskip}{2pt}                 
+\captionsetup{skip=3pt}
+
+% --- CONFIGURAÇÕES DE PÁGINA ---
+\pagestyle{fancy}
+
+% --- INÍCIO DO DOCUMENTO ---
+\begin{document}
+
+% Inclusão das configurações de página e informações do título
+\input{Heading/Heading}
+\input{Title/Title}
+\input{Author/Author}
+
+\maketitle
+\thispagestyle{plain}
+\setlength{\parindent}{0pt}
+
+% Conteúdo do artigo
+\input{Introduction/Introduction}
+%\input{Method/Method}
+%\input{Results/Results}
+\input{Geral/geral.tex}
+%\input{Discussion/Discussion}
+
+
+% --- REFERÊNCIAS BIBLIOGRÁFICAS ---
+\bibliographystyle{ieeetr}
+\bibliography{referencias}
+
+\end{document}
