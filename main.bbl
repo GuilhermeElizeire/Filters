@@ -1,7 +1,35 @@
 \begin{thebibliography}{1}
 
-\bibitem{AMP2_1}
-B.~Leite, ``Amplifiers 2 lab 1 – multistage amplifiers,'' tech. rep.,
+\bibitem{razavi2006fund}
+B.~Razavi, {\em Fundamentals of Microelectronics}.
+\newblock Hoboken, NJ: John Wiley \& Sons, preview~ed., 2006.
+
+\bibitem{ludwig2000rf}
+R.~Ludwig and P.~Bretchko, {\em RF Circuit Design: Theory and Applications}.
+\newblock Upper Saddle River, NJ: Prentice Hall, 2000.
+
+\bibitem{Filter1}
+L.~Schuartz, ``Filters: Activity 1, rf filter design,'' tech. rep.,
   Universidade Federal do Paran{\'a} (UFPR) -- {GIGS}, 2026.
+
+\bibitem{ieee802154}
+{IEEE Computer Society}, ``{IEEE Std 802.15.4-2020}: {IEEE} standard for
+  low-rate wireless networks,'' 2020.
+
+\bibitem{anatel2026ato10400}
+{Ag{\^e}ncia Nacional de Telecomunica{\c{c}}{\~o}es (ANATEL)}, ``Ato
+  n{\textordmasculine} 10.400 e ac{\'o}rd{\~a}o n{\textordmasculine} 203:
+  Destina{\c{c}}{\~a}o e requisitos t{\'e}cnicos de equipamentos de
+  radia{\c{c}}{\~a}o restrita na faixa de 6 {GHz}.'' Di{\'a}rio Oficial da
+  Uni{\~a}o / Portal da Anatel, Bras{\'i}lia, Aug. 2026.
+
+\bibitem{etsi303687}
+{European Telecommunications Standards Institute (ETSI)}, ``{ETSI EN 303 687}:
+  6 {GHz} {WAS/RLAN}; harmonised standard for access to radio spectrum,'' tech.
+  rep., ETSI, Sophia Antipolis, France, 2023.
+
+\bibitem{schuartz2026slides}
+L.~Schuartz, ``Filters (3-3): Rf filter design.'' Notas de aula, Universidade
+  Federal do Paran{\'a} (UFPR) -- GICS, 2026.
 
 \end{thebibliography}

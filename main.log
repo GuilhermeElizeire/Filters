@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.11.16)  19 NOV 2026 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.11.16)  26 NOV 2026 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1381,7 +1381,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
 (main.aux
 Package babel Info: 'brazilian' activates 'portuges' shorthands.
-(babel)             Reported on input line 9.
+(babel)             Reported on input line 19.
 )
 \openout1 = `main.aux'.
 
@@ -1453,14 +1453,14 @@ LaTeX Font Info:    ... okay on input line 68.
 * \headsep=11.38092pt
 * \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
-* \@twocolumnfalse
+* \@twocolumntrue
 * \@twosidefalse
 * \@mparswitchfalse
 * \@reversemarginfalse
@@ -1560,86 +1560,83 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
-) (Geral/geral.tex (Geral/questao1.tex
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 3.
 LaTeX Font Info:    Trying to load font information for OT1+minntx on input lin
-e 7.
+e 5.
 
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd
 File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
 )
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `minntx' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 
-7.
+5.
 
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 
-7.
+5.
 
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 
-7.
+5.
 
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 10.0pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
 
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1647,7 +1644,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1655,227 +1652,99 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 7.
+(Font)              scaled to size 7.3pt on input line 5.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 7.
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 7.
+(Font)              scaled to size 5.5pt on input line 5.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 9.
-<Geral/Fig/Esquematico 1.png, id=45, 1232.35406pt x 648.17157pt>
-File: Geral/Fig/Esquematico 1.png Graphic file (type png)
-<use Geral/Fig/Esquematico 1.png>
-Package pdftex.def Info: Geral/Fig/Esquematico 1.png  used on input line 65.
-(pdftex.def)             Requested size: 419.96643pt x 220.87982pt.
-<Heading/Logo_CI_Inovador.png, id=47, 464.73625pt x 394.47375pt>
+(Font)              scaled to size 10.0pt on input line 5.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
+e 13.
+ (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 13.
+) (Method/Method.tex
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 3.
+<Heading/Logo_CI_Inovador.png, id=35, 464.73625pt x 394.47375pt>
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 69.
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 9.
 (pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-<Heading/Logo_UFPR.png, id=48, 722.7pt x 487.5816pt>
+<Heading/Logo_UFPR.png, id=36, 722.7pt x 487.5816pt>
 File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 69.
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 9.
 (pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
- [1
-
-{C:/Users/Usuário/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/U
-suário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{C:/
-Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.
-enc} <./Heading/Logo_CI_Inovador.png> <./Heading/Logo_UFPR.png>]
-File: Heading/Logo_CI_Inovador.png Graphic file (type png)
-<use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 116.
-(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-File: Heading/Logo_UFPR.png Graphic file (type png)
-<use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 116.
-(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
- [2 <./Geral/Fig/Esquematico 1.png>]
-<Geral/Fig/transiente_vout_vin.png, id=86, 1437.87187pt x 639.13782pt>
-File: Geral/Fig/transiente_vout_vin.png Graphic file (type png)
-<use Geral/Fig/transiente_vout_vin.png>
-Package pdftex.def Info: Geral/Fig/transiente_vout_vin.png  used on input line 
-137.
-(pdftex.def)             Requested size: 471.17671pt x 209.43376pt.
-<Geral/Fig/av_inst.png, id=87, 1436.36626pt x 640.64343pt>
-File: Geral/Fig/av_inst.png Graphic file (type png)
-<use Geral/Fig/av_inst.png>
-Package pdftex.def Info: Geral/Fig/av_inst.png  used on input line 144.
-(pdftex.def)             Requested size: 471.17671pt x 210.15195pt.
-File: Heading/Logo_CI_Inovador.png Graphic file (type png)
-<use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 148.
-(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-File: Heading/Logo_UFPR.png Graphic file (type png)
-<use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 148.
-(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
- [3 <./Geral/Fig/transiente_vout_vin.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 153.
+ [1{C:/Users/Usuário/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/User
+s/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 153.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\approx' on input line 153.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 153.
-
-<Geral/Fig/varredura_0_1200m.png, id=103, 1434.86063pt x 635.37375pt>
-File: Geral/Fig/varredura_0_1200m.png Graphic file (type png)
-<use Geral/Fig/varredura_0_1200m.png>
-Package pdftex.def Info: Geral/Fig/varredura_0_1200m.png  used on input line 16
-9.
-(pdftex.def)             Requested size: 409.72125pt x 181.42271pt.
-File: Heading/Logo_CI_Inovador.png Graphic file (type png)
-<use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 173.
-(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-File: Heading/Logo_UFPR.png Graphic file (type png)
-<use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 173.
-(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
-[4 <./Geral/Fig/av_inst.png>]
-<Geral/Fig/varredura_200_300m.png, id=116, 1440.13031pt x 639.13782pt>
-File: Geral/Fig/varredura_200_300m.png Graphic file (type png)
-<use Geral/Fig/varredura_200_300m.png>
-Package pdftex.def Info: Geral/Fig/varredura_200_300m.png  used on input line 1
-76.
-(pdftex.def)             Requested size: 409.72125pt x 181.83434pt.
-<Geral/Fig/varredura_700_800m.png, id=117, 718.18312pt x 322.20375pt>
-File: Geral/Fig/varredura_700_800m.png Graphic file (type png)
-<use Geral/Fig/varredura_700_800m.png>
-Package pdftex.def Info: Geral/Fig/varredura_700_800m.png  used on input line 1
-83.
-(pdftex.def)             Requested size: 409.72125pt x 183.82028pt.
-File: Heading/Logo_CI_Inovador.png Graphic file (type png)
-<use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 192.
-(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-File: Heading/Logo_UFPR.png Graphic file (type png)
-<use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 192.
-(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
- [5 <./Geral/Fig/varredura_0_1200m.png> <./Geral/Fig/varredura_200_300m.png> <.
-/Geral/Fig/varredura_700_800m.png>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 192.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
-
+{C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-
+tlf.enc}{C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gy
+re/q-ts1.enc} <./Heading/Logo_CI_Inovador.png> <./Heading/Logo_UFPR.png>]
+<Method/Fig/tabela1.png, id=61, 1026.08344pt x 584.1825pt>
+File: Method/Fig/tabela1.png Graphic file (type png)
+<use Method/Fig/tabela1.png>
+Package pdftex.def Info: Method/Fig/tabela1.png  used on input line 14.
+(pdftex.def)             Requested size: 251.07481pt x 142.94322pt.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 21.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 9.0pt on input line 205.
+(Font)              scaled to size 8.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 205.
+(Font)              scaled to size 6.0pt on input line 24.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 207.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 9.0pt on input line 207.
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-[]|\T1/ntxtt/m/n/9 peakToPeak(clip(VT("/Vout") 2e-06 5e-06)) /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
-[]|\T1/ntxtt/m/n/9 peakToPeak(clip(IT("/Cout/MINUS") 2e-06
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--212
-\T1/ntxtt/m/n/9 5e-06)) / peakToPeak(clip(VT("/Vin") 2e-06
- []
-
-<Geral/Fig/transiente_gm_nmos.png, id=128, 1437.11906pt x 638.385pt>
-File: Geral/Fig/transiente_gm_nmos.png Graphic file (type png)
-<use Geral/Fig/transiente_gm_nmos.png>
-Package pdftex.def Info: Geral/Fig/transiente_gm_nmos.png  used on input line 2
-28.
-(pdftex.def)             Requested size: 471.17671pt x 209.30396pt.
+(Font)              scaled to size 8.0pt on input line 26.
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 8.0pt on input line 78.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 78.
+<Method/Fig/filtro_uwb_6g5.png, id=74, 1080.28593pt x 416.30531pt>
+File: Method/Fig/filtro_uwb_6g5.png Graphic file (type png)
+<use Method/Fig/filtro_uwb_6g5.png>
+Package pdftex.def Info: Method/Fig/filtro_uwb_6g5.png  used on input line 92.
+(pdftex.def)             Requested size: 251.07481pt x 96.75186pt.
+) (Results/Results.tex) (Discussion/Discussion.tex) (main.bbl
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 234.
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 25.
 (pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
 File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 234.
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 25.
 (pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
-[6 <./Geral/Fig/transiente_gm_nmos.png>]) (Geral/questao2.tex
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 12.0pt on input line 23.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.8pt on input line 23.
-)) (main.bbl)
+
+[2 <./Method/Fig/tabela1.png> <./Method/Fig/filtro_uwb_6g5.png>])
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
 Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 91.
@@ -1884,38 +1753,37 @@ File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
 Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 91.
 (pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
+ [3
 
-[7] (main.aux)
+] (main.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AD4E5CEC3C2C2909C25A4EF1430E1F2F;3179.
+(rerunfilecheck)             Checksum: 8AEBB9FDE7DD9BFC94ADEA0E788D6A0D;636.
  ) 
 Here is how much of TeX's memory you used:
- 54482 strings out of 467310
- 1287340 string characters out of 5401355
- 1921622 words of memory out of 5000000
- 83224 multiletter control sequences out of 15000+600000
- 710380 words of font info for 152 fonts, out of 8000000 for 9000
+ 53504 strings out of 467310
+ 1259388 string characters out of 5401355
+ 1921741 words of memory out of 5000000
+ 82267 multiletter control sequences out of 15000+600000
+ 699953 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,19n,117p,1154b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,18n,117p,1210b,1200s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/New
 TXMI.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/public/ne
-wtx/NewTXMI5.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/newtx/NewTXMI7.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/txfonts/t1xtt.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/newtx/txexs.pfb><C:/Users/Usuário/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/Usuário/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/Usuário/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/Usuário/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmbi.pfb><C:/Users/Usuário/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Usuário
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (7 pages, 1717040 bytes).
+wtx/NewTXMI7.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/tex-gyre/qtmr.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/txfonts/t1xtt.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/Usuário/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/Usuário/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/Usuário/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Usuário/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on main.pdf (3 pages, 1184538 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 11906 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 11841 words of extra memory for PDF output out of 12000 (max. 10000000)
 
