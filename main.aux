@@ -25,13 +25,9 @@
 \citation{schuartz2026slides,ludwig2000rf}
 \citation{ludwig2000rf,schuartz2026slides}
 \citation{ludwig2000rf,schuartz2026slides}
-\bibstyle{ieeetr}
-\bibdata{referencias}
-\bibcite{razavi2006fund}{1}
-\bibcite{ludwig2000rf}{2}
-\bibcite{Filter1}{3}
-\bibcite{ieee802154}{4}
-\bibcite{anatel2026ato10400}{5}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Dimensionamento e Implementação Esquemática do Filtro}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Tabela de coeficientes normalizados para filtro Chebyshev com $0,5\text  { dB}$ de \textit  {ripple} \cite  {schuartz2026slides, ludwig2000rf}.}}{2}{table.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
@@ -42,7 +38,60 @@
 \newlabel{tab:components}{{3}{2}{Valores dimensionados dos componentes do filtro passa-faixa ($f_0 = 6,5\text { GHz}$, $BW = 500\text { MHz}$) e correspondência com o esquemático}{table.caption.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Esquemático do filtro passa-faixa UWB em $6,5\text  { GHz}$ implementado no \textit  {Cadence Virtuoso}.}}{2}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:filtro_uwb_6g5}{{1}{2}{Esquemático do filtro passa-faixa UWB em $6,5\text { GHz}$ implementado no \textit {Cadence Virtuoso}}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Resultados}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Configuração das Simulações no ADE Maestro}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}Análise de Resposta em Frequência (AC) e Polos e Zeros (PZ)}{2}{subsubsection.2.2.1}\protected@file@percent }
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\citation{Filter1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Análise de Parâmetros de Espalhamento (SP)}{3}{subsubsection.2.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Esquemático adaptado com portas de $50~\Omega $ (\texttt  {PORT0} e \texttt  {PORT1}) para a simulação de parâmetros S no \textit  {Cadence Virtuoso}.}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:filtro_sp}{{2}{3}{Esquemático adaptado com portas de $50~\Omega $ (\texttt {PORT0} e \texttt {PORT1}) para a simulação de parâmetros S no \textit {Cadence Virtuoso}}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Avaliação Não Linear e Rejeição de Banda Adjacente (Envelope)}{3}{subsubsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Avaliação Não Linear e Rejeição de Banda Adjacente}{3}{subsubsection.2.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Esquemático do desafio não linear com fonte modulada (\texttt  {W0}), amplificador de potência (\texttt  {PA}), filtro de 5ª ordem e sondas \texttt  {WPRB0}/\texttt  {WPRB1}.}}{3}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:tb_desafio}{{3}{3}{Esquemático do desafio não linear com fonte modulada (\texttt {W0}), amplificador de potência (\texttt {PA}), filtro de 5ª ordem e sondas \texttt {WPRB0}/\texttt {WPRB1}}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Resultados}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Resposta em Frequência (AC) e Análise de Polos e Zeros}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Magnitude linear em $\text  {mV}$ da resposta em frequência AC no nó \texttt  {/net10}, evidenciando os cinco lóbulos de Chebyshev na banda passante.}}{4}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:ac_mag_lin}{{4}{4}{Magnitude linear em $\text {mV}$ da resposta em frequência AC no nó \texttt {/net10}, evidenciando os cinco lóbulos de Chebyshev na banda passante}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Magnitude em $\text  {dB20}$ da resposta em frequência AC no nó \texttt  {/net10}, destacando os marcadores de corte e o patamar de $-6,02\text  { dB}$.}}{4}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:ac_mag_db}{{5}{4}{Magnitude em $\text {dB20}$ da resposta em frequência AC no nó \texttt {/net10}, destacando os marcadores de corte e o patamar de $-6,02\text { dB}$}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Resposta de fase em graus da tensão de saída \texttt  {/net10} na simulação AC.}}{4}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:ac_phase}{{6}{4}{Resposta de fase em graus da tensão de saída \texttt {/net10} na simulação AC}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Diagrama de polos no plano complexo $s$, evidenciando os cinco pares complexos conjugados na faixa de $6,25\text  { GHz}$ a $6,75\text  { GHz}$.}}{4}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:pz_poles}{{7}{4}{Diagrama de polos no plano complexo $s$, evidenciando os cinco pares complexos conjugados na faixa de $6,25\text { GHz}$ a $6,75\text { GHz}$}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Diagrama de zeros no plano complexo $s$, evidenciando o zero de multiplicidade $5$ na origem ($0\text  { Hz}$).}}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:pz_zeros}{{8}{5}{Diagrama de zeros no plano complexo $s$, evidenciando o zero de multiplicidade $5$ na origem ($0\text { Hz}$)}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Análise de Parâmetros de Espalhamento (SP)}{5}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Parâmetros de espalhamento $S_{21}$ e $S_{11}$ em $\text  {dB20}$ de $5\text  { GHz}$ a $8\text  { GHz}$, evidenciando os cinco polos de reflexão na banda passante e a atenuação fora da banda.}}{5}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:sp_full}{{9}{5}{Parâmetros de espalhamento $S_{21}$ e $S_{11}$ em $\text {dB20}$ de $5\text { GHz}$ a $8\text { GHz}$, evidenciando os cinco polos de reflexão na banda passante e a atenuação fora da banda}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Coeficiente de reflexão na porta de saída ($S_{22}$) em $\text  {dB20}$, comprovando a simetria da rede em relação a $S_{11}$.}}{5}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:sp_s22}{{10}{5}{Coeficiente de reflexão na porta de saída ($S_{22}$) em $\text {dB20}$, comprovando a simetria da rede em relação a $S_{11}$}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Detalhe dos parâmetros $S_{21}$ e $S_{11}$ entre $6,0\text  { GHz}$ e $7,0\text  { GHz}$, destacando o \textit  {ripple} na banda passante, o limite superior de $S_{11}$ ($\approx -9,64\text  { dB}$) e os pontos de atenuação em $6,125\text  { GHz}$ e $6,875\text  { GHz}$.}}{5}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:sp_zoom}{{11}{5}{Detalhe dos parâmetros $S_{21}$ e $S_{11}$ entre $6,0\text { GHz}$ e $7,0\text { GHz}$, destacando o \textit {ripple} na banda passante, o limite superior de $S_{11}$ ($\approx -9,64\text { dB}$) e os pontos de atenuação em $6,125\text { GHz}$ e $6,875\text { GHz}$}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Resposta de fase do parâmetro $S_{21}$ em graus de $5\text  { GHz}$ a $8\text  { GHz}$.}}{5}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:sp_phase}{{12}{5}{Resposta de fase do parâmetro $S_{21}$ em graus de $5\text { GHz}$ a $8\text { GHz}$}{figure.caption.15}{}}
+\citation{Filter1}
+\bibstyle{ieeetr}
+\bibdata{referencias}
+\bibcite{razavi2006fund}{1}
+\bibcite{ludwig2000rf}{2}
+\bibcite{Filter1}{3}
+\bibcite{ieee802154}{4}
+\bibcite{anatel2026ato10400}{5}
 \bibcite{etsi303687}{6}
 \bibcite{schuartz2026slides}{7}
-\gdef \@abspage@last{3}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Comparação entre as especificações do projeto e os resultados simulados (AC e SP).}}{6}{table.caption.16}\protected@file@percent }
+\newlabel{tab:resumo_specs}{{4}{6}{Comparação entre as especificações do projeto e os resultados simulados (AC e SP)}{table.caption.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusão}{6}{section.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Comparação entre as especificações do projeto e os resultados simulados (AC e SP).}}{6}{table.caption.18}\protected@file@percent }
+\newlabel{tab:resumo_specs}{{5}{6}{Comparação entre as especificações do projeto e os resultados simulados (AC e SP)}{table.caption.18}{}}
+\gdef \@abspage@last{6}

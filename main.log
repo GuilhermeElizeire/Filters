@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.11.16)  26 NOV 2026 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.11.16)  26 NOV 2026 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1382,14 +1382,17 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (main.aux
 Package babel Info: 'brazilian' activates 'portuges' shorthands.
 (babel)             Reported on input line 19.
+
+
+LaTeX Warning: Label `tab:resumo_specs' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 68.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
  68.
-
-(C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd
+ (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
 LaTeX Font Info:    ... okay on input line 68.
@@ -1406,7 +1409,6 @@ LaTeX Font Info:    ... okay on input line 68.
 LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 68.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 
 68.
-
 (C:\Users\Usuário\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
@@ -1667,12 +1669,12 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 ) (Method/Method.tex
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 10.0pt on input line 3.
-<Heading/Logo_CI_Inovador.png, id=35, 464.73625pt x 394.47375pt>
+<Heading/Logo_CI_Inovador.png, id=67, 464.73625pt x 394.47375pt>
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
 Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 9.
 (pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
-<Heading/Logo_UFPR.png, id=36, 722.7pt x 487.5816pt>
+<Heading/Logo_UFPR.png, id=68, 722.7pt x 487.5816pt>
 File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
 Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 9.
@@ -1684,7 +1686,7 @@ s/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}
 {C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-
 tlf.enc}{C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gy
 re/q-ts1.enc} <./Heading/Logo_CI_Inovador.png> <./Heading/Logo_UFPR.png>]
-<Method/Fig/tabela1.png, id=61, 1026.08344pt x 584.1825pt>
+<Method/Fig/tabela1.png, id=93, 1026.08344pt x 584.1825pt>
 File: Method/Fig/tabela1.png Graphic file (type png)
 <use Method/Fig/tabela1.png>
 Package pdftex.def Info: Method/Fig/tabela1.png  used on input line 14.
@@ -1729,22 +1731,120 @@ LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 (Font)              scaled to size 8.0pt on input line 78.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.0pt on input line 78.
-<Method/Fig/filtro_uwb_6g5.png, id=74, 1080.28593pt x 416.30531pt>
+<Method/Fig/filtro_uwb_6g5.png, id=106, 1080.28593pt x 416.30531pt>
 File: Method/Fig/filtro_uwb_6g5.png Graphic file (type png)
 <use Method/Fig/filtro_uwb_6g5.png>
 Package pdftex.def Info: Method/Fig/filtro_uwb_6g5.png  used on input line 92.
 (pdftex.def)             Requested size: 251.07481pt x 96.75186pt.
-) (Results/Results.tex) (Discussion/Discussion.tex) (main.bbl
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.0pt on input line 101.
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
-Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 25.
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 104.
 (pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
 File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
-Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 25.
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 104.
 (pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
+ [2 <./Method/Fig/tabela1.png> <./Method/Fig/filtro_uwb_6g5.png>]
+<Method/Fig/filtro_sp.png, id=140, 1099.10625pt x 312.41719pt>
+File: Method/Fig/filtro_sp.png Graphic file (type png)
+<use Method/Fig/filtro_sp.png>
+Package pdftex.def Info: Method/Fig/filtro_sp.png  used on input line 113.
+(pdftex.def)             Requested size: 251.07481pt x 71.36342pt.
+<Method/Fig/tb_desafio.png.png, id=148, 1247.41031pt x 400.49625pt>
+File: Method/Fig/tb_desafio.png.png Graphic file (type png)
+<use Method/Fig/tb_desafio.png.png>
+Package pdftex.def Info: Method/Fig/tb_desafio.png.png  used on input line 133.
 
-[2 <./Method/Fig/tabela1.png> <./Method/Fig/filtro_uwb_6g5.png>])
+(pdftex.def)             Requested size: 251.07481pt x 80.60504pt.
+) (Results/Results.tex
+<Results/Fig/ac_mag_lin.png, id=151, 1440.13031pt x 639.13782pt>
+File: Results/Fig/ac_mag_lin.png Graphic file (type png)
+<use Results/Fig/ac_mag_lin.png>
+Package pdftex.def Info: Results/Fig/ac_mag_lin.png  used on input line 9.
+(pdftex.def)             Requested size: 251.07481pt x 111.42168pt.
+File: Heading/Logo_CI_Inovador.png Graphic file (type png)
+<use Heading/Logo_CI_Inovador.png>
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 15.
+(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
+File: Heading/Logo_UFPR.png Graphic file (type png)
+<use Heading/Logo_UFPR.png>
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 15.
+(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
+ [3 <./Method/Fig/filtro_sp.png> <./Method/Fig/tb_desafio.png.png>]
+<Results/Fig/ac_mag_db.png, id=163, 1435.61343pt x 636.87938pt>
+File: Results/Fig/ac_mag_db.png Graphic file (type png)
+<use Results/Fig/ac_mag_db.png>
+Package pdftex.def Info: Results/Fig/ac_mag_db.png  used on input line 18.
+(pdftex.def)             Requested size: 251.07481pt x 111.3778pt.
+<Results/Fig/ac_phase.png, id=165, 737.75626pt x 486.31688pt>
+File: Results/Fig/ac_phase.png Graphic file (type png)
+<use Results/Fig/ac_phase.png>
+Package pdftex.def Info: Results/Fig/ac_phase.png  used on input line 27.
+(pdftex.def)             Requested size: 251.07481pt x 165.50137pt.
+<Results/Fig/pz_poles.png, id=167, 1434.86063pt x 636.87938pt>
+File: Results/Fig/pz_poles.png Graphic file (type png)
+<use Results/Fig/pz_poles.png>
+Package pdftex.def Info: Results/Fig/pz_poles.png  used on input line 36.
+(pdftex.def)             Requested size: 251.07481pt x 111.43611pt.
+File: Heading/Logo_CI_Inovador.png Graphic file (type png)
+<use Heading/Logo_CI_Inovador.png>
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 42.
+(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
+File: Heading/Logo_UFPR.png Graphic file (type png)
+<use Heading/Logo_UFPR.png>
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 42.
+(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
+ [4 <./Results/Fig/ac_mag_lin.png> <./Results/Fig/ac_mag_db.png> <./Results/Fig
+/ac_phase.png> <./Results/Fig/pz_poles.png>]
+<Results/Fig/pz_zeros.png, id=180, 1436.36626pt x 634.62094pt>
+File: Results/Fig/pz_zeros.png Graphic file (type png)
+<use Results/Fig/pz_zeros.png>
+Package pdftex.def Info: Results/Fig/pz_zeros.png  used on input line 45.
+(pdftex.def)             Requested size: 251.07481pt x 110.92476pt.
+<Results/Fig/sp_s21_s11_full.png, id=182, 743.02594pt x 481.8pt>
+File: Results/Fig/sp_s21_s11_full.png Graphic file (type png)
+<use Results/Fig/sp_s21_s11_full.png>
+Package pdftex.def Info: Results/Fig/sp_s21_s11_full.png  used on input line 56
+.
+(pdftex.def)             Requested size: 251.07481pt x 162.80264pt.
+<Results/Fig/sp_s22.png, id=184, 1432.60219pt x 634.62094pt>
+File: Results/Fig/sp_s22.png Graphic file (type png)
+<use Results/Fig/sp_s22.png>
+Package pdftex.def Info: Results/Fig/sp_s22.png  used on input line 65.
+(pdftex.def)             Requested size: 251.07481pt x 111.21526pt.
+<Results/Fig/sp_zoom.png, id=186, 1434.10782pt x 637.63219pt>
+File: Results/Fig/sp_zoom.png Graphic file (type png)
+<use Results/Fig/sp_zoom.png>
+Package pdftex.def Info: Results/Fig/sp_zoom.png  used on input line 74.
+(pdftex.def)             Requested size: 251.07481pt x 111.62622pt.
+<Results/Fig/sp_phase.png, id=188, 1437.87187pt x 636.87938pt>
+File: Results/Fig/sp_phase.png Graphic file (type png)
+<use Results/Fig/sp_phase.png>
+Package pdftex.def Info: Results/Fig/sp_phase.png  used on input line 83.
+(pdftex.def)             Requested size: 251.07481pt x 111.20288pt.
+
+Overfull \hbox (116.94759pt too wide) in paragraph at lines 94--108
+ [][] 
+ []
+
+) (Discussion/Discussion.tex
+File: Heading/Logo_CI_Inovador.png Graphic file (type png)
+<use Heading/Logo_CI_Inovador.png>
+Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 4.
+(pdftex.def)             Requested size: 46.9231pt x 39.83368pt.
+File: Heading/Logo_UFPR.png Graphic file (type png)
+<use Heading/Logo_UFPR.png>
+Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 4.
+(pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
+ [5 <./Results/Fig/pz_zeros.png> <./Results/Fig/sp_s21_s11_full.png> <./Results
+/Fig/sp_s22.png> <./Results/Fig/sp_zoom.png> <./Results/Fig/sp_phase.png>]
+Overfull \hbox (191.0348pt too wide) in paragraph at lines 14--28
+ [][] 
+ []
+
+) (main.bbl)
 File: Heading/Logo_CI_Inovador.png Graphic file (type png)
 <use Heading/Logo_CI_Inovador.png>
 Package pdftex.def Info: Heading/Logo_CI_Inovador.png  used on input line 91.
@@ -1753,24 +1853,26 @@ File: Heading/Logo_UFPR.png Graphic file (type png)
 <use Heading/Logo_UFPR.png>
 Package pdftex.def Info: Heading/Logo_UFPR.png  used on input line 91.
 (pdftex.def)             Requested size: 59.04123pt x 39.83368pt.
- [3
-
-] (main.aux)
+ [6] (main.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8AEBB9FDE7DD9BFC94ADEA0E788D6A0D;636.
+(rerunfilecheck)             Checksum: BE4A75DB07A8DFC0E56F15FEE89A4D27;3168.
  ) 
 Here is how much of TeX's memory you used:
- 53504 strings out of 467310
- 1259388 string characters out of 5401355
- 1921741 words of memory out of 5000000
- 82267 multiletter control sequences out of 15000+600000
- 699953 words of font info for 126 fonts, out of 8000000 for 9000
+ 53637 strings out of 467310
+ 1262754 string characters out of 5401355
+ 1924692 words of memory out of 5000000
+ 82373 multiletter control sequences out of 15000+600000
+ 703415 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 92i,18n,117p,1210b,1200s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,18n,117p,1210b,1094s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/New
 TXMI.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/public/ne
 wtx/NewTXMI7.pfb><C:/Users/Usuário/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1781,9 +1883,9 @@ MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/Usuário/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/Usuário/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/Usuário/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (3 pages, 1184538 bytes).
+Output written on main.pdf (6 pages, 1948605 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
- 11841 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 270 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 12472 words of extra memory for PDF output out of 14400 (max. 10000000)
 

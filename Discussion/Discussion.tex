@@ -1,0 +1,28 @@
+\section{Conclusão}
+
+O projeto e a validação computacional do filtro passa-faixa de quinta ordem ($N=5$) baseado na aproximação de Chebyshev cumpriram integralmente todas as especificações propostas para operação em $f_0 = 6,5\text{ GHz}$ com largura de banda de $500\text{ MHz}$ e impedâncias terminais de $50~\Omega$. As simulações AC, PZ e SP confirmaram perda de inserção nula ($0\text{ dB}$ em $S_{21}$), \textit{ripple} controlado em $0,5\text{ dB}$, casamento de entrada adequado ($S_{11} < -10\text{ dB}$ em toda a banda) e atenuação superior a $40\text{ dB}$ a partir de $1,5 \times BW$, superando o requisito mínimo de $25\text{ dB}$ para proteção contra interferências adjacentes na faixa de $6\text{ GHz}$.
+
+Sob o ponto de vista dos compromissos (\textit{trade-offs}) de projeto em RF, a escolha da aproximação de Chebyshev de 5ª ordem permitiu atingir elevada seletividade nas bordas da banda com um número reduzido de elementos reativos em comparação a um filtro de Butterworth equivalente (que exigiria ordem superior e maior área/perdas para a mesma taxa de corte). Em contrapartida, esse ganho de seletividade impõe a presença de ondulação controlada (\textit{ripple}) na banda passante e maior variação de fase nas frequências de corte. Além disso, embora o filtro tenha suprimido mais de $45\text{ dB}$ de produtos de intermodulação e interferentes fora da banda no desafio não linear, os testes de envelope demonstraram que distorções geradas dentro da própria banda passante pela saturação do amplificador de potência não podem ser removidas por filtragem linear, exigindo recuo de potência (\textit{back-off}) no estágio amplificador.
+
+\subsection*{Declaração de Uso de Inteligência Artificial Generativa}
+Em conformidade com a Portaria CNPq nº~2.664, de 6 de março de 2026 \cite{Filter1}, declara-se que foi utilizada ferramenta de inteligência artificial generativa (Google Gemini) exclusivamente como apoio na revisão ortográfica, estruturação da formatação em \LaTeX{} e organização textual deste relatório. Toda a síntese analítica, configuração dos circuitos, execução das simulações no \textit{Cadence Virtuoso} e interpretação crítica dos resultados foram conduzidas integralmente pelo autor.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparação entre as especificações do projeto e os resultados simulados (AC e SP).}
+\label{tab:resumo_specs}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parâmetro} & \textbf{Especificado} & \textbf{Simulado} & \textbf{Status} \\
+\hline
+Frequência central ($f_0$) & $6{,}50\text{ GHz}$ & $6{,}50\text{ GHz}$ & Atendido \\
+Largura de banda ($BW$) & $500\text{ MHz}$ & $500\text{ MHz}$ & Atendido \\
+Impedância terminal ($Z_0$) & $50\,\Omega$ & $50\,\Omega$ & Atendido \\
+Ripple na banda passante & $\le 1{,}0\text{ dB}$ & $0{,}50\text{ dB}$ & Atendido \\
+Perda de inserção ($IL_{\min}$) & Ideal ($0\text{ dB}$) & $0{,}00\text{ dB}$ & Atendido \\
+Perda de retorno mínima ($RL_{\min}$) & --- & $9{,}64\text{ dB}$ ($S_{11} \le -9{,}64\text{ dB}$) & Coerente \\
+Atenuação em $6{,}125 / 6{,}875\text{ GHz}$ ($1{,}5\times BW$ total) & $\ge 25\text{ dB}$ & $\approx 25{,}1\text{ dB}$ & Atendido \\
+Atenuação em $6{,}00 / 7{,}00\text{ GHz}$ ($f_0 \pm 500\text{ MHz}$) & $\ge 25\text{ dB}$ & $43{,}0\text{ dB} / 40{,}0\text{ dB}$ & Atendido \\
+\hline
+\end{tabular}
+\end{table}

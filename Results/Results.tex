@@ -1,1 +1,109 @@
 \section{Resultados}
+
+\subsection{Resposta em Frequência (AC) e Análise de Polos e Zeros}
+
+A Figura~\ref{fig:ac_mag_lin} apresenta a magnitude linear da tensão obtida pela simulação AC no nó de saída $V_{\text{out}}$ (\texttt{/net10}). Observa-se claramente a característica \textit{equiripple} da aproximação de Chebyshev de quinta ordem ($N=5$), exibindo cinco picos máximos de aproximadamente $500\text{ mV}$ ($499,63\text{ mV}$ em $6,267\text{ GHz}$ e $499,42\text{ mV}$ em $6,743\text{ GHz}$) dentro da banda passante ($6,25\text{ GHz}$ a $6,75\text{ GHz}$). Esse valor corresponde à metade da amplitude da fonte ($1\text{ V}$), comprovando a ausência de perdas dissipativas nos elementos reativos ideais e o casamento de impedância entre $R_0 = 50~\Omega$ e $R_L = 50~\Omega$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/ac_mag_lin.png}
+    \caption{Magnitude linear em $\text{mV}$ da resposta em frequência AC no nó \texttt{/net10}, evidenciando os cinco lóbulos de Chebyshev na banda passante.}
+    \label{fig:ac_mag_lin}
+\end{figure}
+
+Na curva em decibéis (Figura~\ref{fig:ac_mag_db}), o patamar máximo estabiliza em $-6,02\text{ dB}$ em $f_0 = 6,50\text{ GHz}$ devido ao divisor resistivo natural de $1/2$ ($20\log_{10}(0,5)$) formado pelas terminações de fonte e carga, apresentando ondulação interna limitada ao \textit{ripple} projetado de $0,5\text{ dB}$ (com bordas da banda passante em $-6,54\text{ dB}$ em $6,254\text{ GHz}$ e $-6,12\text{ dB}$ em $6,748\text{ GHz}$). Fora da banda passante, a atenuação acentua-se rapidamente, atingindo cerca de $25\text{ dB}$ de rejeição relativa nas bordas da especificação de largura total $1,5 \times BW$ ($6,125\text{ GHz}$ e $6,875\text{ GHz}$) e ultrapassando $40\text{ dB}$ em afastamentos de $\pm 500\text{ MHz}$ da portadora ($6,0\text{ GHz}$ e $7,0\text{ GHz}$), atendendo integralmente ao requisito mínimo de $25\text{ dB}$ do roteiro \cite{Filter1}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/ac_mag_db.png}
+    \caption{Magnitude em $\text{dB20}$ da resposta em frequência AC no nó \texttt{/net10}, destacando os marcadores de corte e o patamar de $-6,02\text{ dB}$.}
+    \label{fig:ac_mag_db}
+\end{figure}
+
+A resposta de fase de $V_{\text{out}}$ (Figura~\ref{fig:ac_phase}) exibe comportamento monotônico e aproximadamente linear na região central da banda passante, cruzando $-363,88^\circ$ na frequência central de $6,504\text{ GHz}$. Ao longo da varredura de $5\text{ GHz}$ a $8\text{ GHz}$, observa-se uma excursão de fase de aproximadamente $872,6^\circ$ (de $+77,80^\circ$ em $5,255\text{ GHz}$ até $-794,85^\circ$ em $7,726\text{ GHz}$), tendendo assintoticamente aos $900^\circ$ ($10 \times 90^\circ$) esperados para os dez polos do sistema.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/ac_phase.png}
+    \caption{Resposta de fase em graus da tensão de saída \texttt{/net10} na simulação AC.}
+    \label{fig:ac_phase}
+\end{figure}
+
+A distribuição de polos e zeros no plano complexo $s$ confirma a síntese analítica do filtro. Como esperado para uma transformação passa-faixa de quinta ordem, o circuito apresenta $10$ polos divididos em cinco pares complexos conjugados no semiplano esquerdo ($\text{Re}(s) < 0$, Figura~\ref{fig:pz_poles}), garantindo estabilidade incondicional. Os polos mais próximos do eixo imaginário situam-se nas bordas da banda passante ($6,252\text{ GHz}$ com $\sigma = -26,74\text{ MHz}$ e $6,757\text{ GHz}$ com $\sigma = -29,23\text{ MHz}$), sendo fisicamente responsáveis pela transição abrupta nas frequências de corte.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/pz_poles.png}
+    \caption{Diagrama de polos no plano complexo $s$, evidenciando os cinco pares complexos conjugados na faixa de $6,25\text{ GHz}$ a $6,75\text{ GHz}$.}
+    \label{fig:pz_poles}
+\end{figure}
+
+Simultaneamente, o diagrama de zeros (Figura~\ref{fig:pz_zeros}) evidencia o zero na origem ($0\text{ Hz}$, de multiplicidade $N=5$ decorrente da transformação passa-faixa), assegurando o bloqueio completo de componentes DC.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/pz_zeros.png}
+    \caption{Diagrama de zeros no plano complexo $s$, evidenciando o zero de multiplicidade $5$ na origem ($0\text{ Hz}$).}
+    \label{fig:pz_zeros}
+\end{figure}
+
+\subsection{Análise de Parâmetros de Espalhamento (SP)}
+
+A caracterização de potência por parâmetros de espalhamento ratifica o desempenho de transmissão e casamento de impedância do filtro. Na resposta em banda larga de $5\text{ GHz}$ a $8\text{ GHz}$ (Figura~\ref{fig:sp_full}), a curva de transmissão direta $S_{21}$ atinge $0,00\text{ dB}$ ($-30,55~\mu\text{dB}$) na frequência central de $6,50\text{ GHz}$, confirmando perda de inserção (\textit{insertion loss}) nula para componentes ideais, enquanto a atenuação fora da banda alcança $-98,60\text{ dB}$ em $5,0\text{ GHz}$ e $-87,89\text{ dB}$ em $8,0\text{ GHz}$. Simultaneamente, devido à reciprocidade da rede passiva sem perdas, o coeficiente de transmissão reversa $S_{12}$ exibe comportamento idêntico a $S_{21}$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/sp_s21_s11_full.png}
+    \caption{Parâmetros de espalhamento $S_{21}$ e $S_{11}$ em $\text{dB20}$ de $5\text{ GHz}$ a $8\text{ GHz}$, evidenciando os cinco polos de reflexão na banda passante e a atenuação fora da banda.}
+    \label{fig:sp_full}
+\end{figure}
+
+O coeficiente de reflexão na entrada ($S_{11}$) apresenta cinco vales profundos de casamento (atingindo $-142,15\text{ dB}$ em $6,355\text{ GHz}$ e $-110,84\text{ dB}$ em $6,50\text{ GHz}$), refletindo a simetria física da topologia também observada no coeficiente de reflexão de saída $S_{22}$ (Figura~\ref{fig:sp_s22}). Fora da banda passante, tanto $S_{11}$ quanto $S_{22}$ aproximam-se de $0\text{ dB}$, indicando que a potência dos sinais indesejados é refletida de volta à fonte em vez de ser dissipada internamente.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/sp_s22.png}
+    \caption{Coeficiente de reflexão na porta de saída ($S_{22}$) em $\text{dB20}$, comprovando a simetria da rede em relação a $S_{11}$.}
+    \label{fig:sp_s22}
+\end{figure}
+
+No detalhamento da banda passante entre $6,0\text{ GHz}$ e $7,0\text{ GHz}$ (Figura~\ref{fig:sp_zoom}), observa-se que os arcos máximos de reflexão $S_{11}$ entre os vales de casamento limitam-se a aproximadamente $-9,64\text{ dB}$, valor teoricamente esperado para um \textit{ripple} de $0,5\text{ dB}$ ($|S_{11}|_{\max} = \sqrt{1 - 10^{-0,05}} \approx 0,3296$, equivalente a uma perda de retorno mínima de $9,64\text{ dB}$). Nos limites da faixa de rejeição especificada ($1,5 \times BW$ total), a transmissão direta $S_{21}$ atinge $-28,36\text{ dB}$ em $6,125\text{ GHz}$ e $-25,05\text{ dB}$ em $6,875\text{ GHz}$, cumprindo o critério mínimo de $25\text{ dB}$ de atenuação em ambos os lados da banda.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/sp_zoom.png}
+    \caption{Detalhe dos parâmetros $S_{21}$ e $S_{11}$ entre $6,0\text{ GHz}$ e $7,0\text{ GHz}$, destacando o \textit{ripple} na banda passante, o limite superior de $S_{11}$ ($\approx -9,64\text{ dB}$) e os pontos de atenuação em $6,125\text{ GHz}$ e $6,875\text{ GHz}$.}
+    \label{fig:sp_zoom}
+\end{figure}
+
+A resposta de fase de $S_{21}$ (Figura~\ref{fig:sp_phase}) exibe variação monotônica e aproximadamente linear na região central da banda passante (cruzando $-360,19^\circ$ em $6,50\text{ GHz}$), característica desejável para minimizar a distorção de atraso de grupo. Entre $5,0\text{ GHz}$ e $8,0\text{ GHz}$, a fase varia de $+80,12^\circ$ até $-797,49^\circ$, perfazendo uma excursão total de $877,61^\circ$, coerente com a assíntota teórica de $900^\circ$ ($10 \times 90^\circ$) associada aos dez polos do filtro.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{Results/Fig/sp_phase.png}
+    \caption{Resposta de fase do parâmetro $S_{21}$ em graus de $5\text{ GHz}$ a $8\text{ GHz}$.}
+    \label{fig:sp_phase}
+\end{figure}
+
+A Tabela~\ref{tab:resumo_specs} consolida a comparação entre os requisitos de projeto e os valores medidos nas simulações lineares.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparação entre as especificações do projeto e os resultados simulados (AC e SP).}
+\label{tab:resumo_specs}
+\begin{tabular}{lccc}
+\hline
+\textbf{Parâmetro} & \textbf{Especificado} & \textbf{Simulado} & \textbf{Status} \\
+\hline
+Frequência central ($f_0$) & $6,50\text{ GHz}$ & $6,50\text{ GHz}$ & Atendido \\
+Largura de banda ($BW$) & $500\text{ MHz}$ & $500\text{ MHz}$ & Atendido \\
+Impedância terminal ($Z_0$) & $50~\Omega$ & $50~\Omega$ & Atendido \\
+\textit{Ripple} na banda passante & $\le 1,0\text{ dB}$ & $0,50\text{ dB}$ & Atendido \\
+Perda de inserção ($IL_{\min}$) & Ideal ($0\text{ dB}$) & $0,00\text{ dB}$ & Atendido \\
+Perda de retorno mín. ($RL_{\min}$) & --- & $9,64\text{ dB}$ ($S_{11} \le -9,64\text{ dB}$) & Coerente \\
+Atenuação em $6,125\text{ GHz}$ & $\ge 25\text{ dB}$ & $28,36\text{ dB}$ & Atendido \\
+Atenuação em $6,875\text{ GHz}$ & $\ge 25\text{ dB}$ & $25,05\text{ dB}$ & Atendido \\
+\hline
+\end{tabular}
+\end{table}
+
