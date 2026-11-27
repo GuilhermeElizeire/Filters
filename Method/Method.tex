@@ -1,138 +1,140 @@
 \section{Metodologia}
 
-A atividade seguiu o procedimento proposto no roteiro \cite{Filter1}, dividindo-se nas etapas de síntese analítica, definição da ordem do filtro, implementação do esquemático e validação computacional no ambiente \textit{Cadence Virtuoso} (ADE Maestro). Conforme as instruções especificadas, utilizaram-se componentes ideais das bibliotecas \texttt{analogLib} e \texttt{rfLib}, garantindo o casamento de impedância em $Z_0 = 50~\Omega$ nas portas de entrada e saída.
+A atividade seguiu o procedimento proposto no roteiro \cite{Filter1}, dividindo-se nas etapas de escolha da aproximação e ordem, síntese analítica, implementação esquemática e validação computacional no ambiente \textit{Cadence Virtuoso} (ADE Maestro). Conforme especificado, utilizaram-se componentes ideais das bibliotecas \texttt{analogLib} e \texttt{rfLib}, mantendo o casamento de impedância em $Z_0 = 50~\Omega$ nas portas de entrada e saída.
 
+\subsection{Escolha da Aproximação e Cálculo da Ordem ($N$)}
+
+O projeto exige um filtro passa-faixa centrado em $f_0 = 6{,}5\text{ GHz}$ com largura de banda $BW = 500\text{ MHz}$ ($f_L = 6{,}25\text{ GHz}$ a $f_U = 6{,}75\text{ GHz}$, resultando em largura de banda fracionária $FBW = BW/f_0 \approx 7{,}69\%$), ondulação máxima na banda passante $A_{\max} \le 1{,}0\text{ dB}$ e atenuação mínima $A_{\min} \ge 25\text{ dB}$ a partir de $1{,}5 \times BW$ ($750\text{ MHz}$ de largura total, correspondendo às bordas de rejeição $f_{s1} = 6{,}125\text{ GHz}$ e $f_{s2} = 6{,}875\text{ GHz}$) \cite{Filter1}.
+
+Aplicando o mapeamento exato de frequência passa-faixa para o protótipo passa-baixas normalizado,
+\begin{equation}
+    \Omega_s = \frac{1}{FBW}\left|\frac{f_s}{f_0} - \frac{f_0}{f_s}\right|,
+\end{equation}
+obtém-se $\Omega_{s1} = 1{,}546$ em $6{,}125\text{ GHz}$ e $\Omega_{s2} = 1{,}459$ em $6{,}875\text{ GHz}$. O requisito mais restritivo ocorre na borda superior ($\Omega_s = 1{,}459$), o que explica a assimetria teórica de atenuação entre as bandas de corte inferior e superior.
+
+Para a aproximação de \textbf{Chebyshev} com \textit{ripple} projetado de $A_{\max} = 0{,}5\text{ dB}$ (metade do limite permitido, assegurando perda de retorno $RL \ge 9{,}64\text{ dB}$), a ordem mínima necessária é calculada por:
+\begin{equation}
+    N \ge \frac{\operatorname{acosh}\!\left(\sqrt{\dfrac{10^{(A_{\min}/10)} - 1}{10^{(A_{\max}/10)} - 1}}\right)}{\operatorname{acosh}(\Omega_s)} = \frac{\operatorname{acosh}\!\left(\sqrt{\dfrac{10^{2{,}5} - 1}{10^{0{,}05} - 1}}\right)}{\operatorname{acosh}(1{,}459)} \approx 4{,}998.
+\end{equation}
+Adota-se, portanto, $N = 5$, atendendo à especificação de $25\text{ dB}$ na borda superior por margem mínima ($\approx 25{,}05\text{ dB}$ teóricos) e superando-a na borda inferior ($\approx 28{,}36\text{ dB}$). Caso se utilizasse o limite máximo de \textit{ripple} ($A_{\max} = 1{,}0\text{ dB}$), a mesma ordem $N = 5$ proveria aproximadamente $28\text{ dB}$ em $6{,}875\text{ GHz}$, porém degradaria a perda de retorno mínima para $RL \approx 6{,}87\text{ dB}$ ($|S_{11}|_{\max} \approx -6{,}87\text{ dB}$).
+
+As demais aproximações clássicas foram descartadas pelos seguintes compromissos físicos:
+\begin{itemize}
+    \item \textbf{Butterworth (maximamente plana):} exigiria $N \ge \dfrac{\log_{10}(10^{2{,}5}-1)}{2\log_{10}(1{,}459)} \approx 7{,}62 \Rightarrow N = 8$, elevando em $60\%$ o número de ressoadores, a área ocupada e a perda de inserção por fator de qualidade ($Q$) finito.
+    \item \textbf{Bessel (fase linear):} prioriza atraso de grupo constante, mas possui taxa de corte ainda mais suave que Butterworth, demandando ordem proibitiva ($N > 10$) para alcançar $25\text{ dB}$ em $\Omega_s = 1{,}459$.
+    \item \textbf{Elíptica (Cauer):} atingiria a seletividade com ordem inferior ($N = 3$ ou $4$) via zeros de transmissão finitos, mas introduziria lobos de retorno na banda de rejeição e maior sensibilidade paramétrica na implementação LC.
+\end{itemize}
 
 \subsection{Dimensionamento e Implementação Esquemática do Filtro}
 
-Para o dimensionamento dos elementos, definiu-se primeiramente a frequência central de $f_0 = 6,5\text{ GHz}$ com largura de banda $BW = 500\text{ MHz}$, cuja motivação foi apresentada na Seção~\ref{sec:introducao}, seguindo as especificações estabelecidas no roteiro \cite{Filter1}.
-
-Com base nos slides da aula \cite{schuartz2026slides}, a partir das informações contidas na Tabela~\ref{Tab:tabela1}, extraíram-se os coeficientes normalizados de quinta ordem ($N = 5$), resumidos na Tabela~\ref{tab:coeficientes_chebyshev}, para realizar os cálculos de dimensionamento dos componentes.
-
-\begin{table}[htbp]
-    \centering
-    \includegraphics[width=\columnwidth]{Method/Fig/tabela1.png}
-    \caption{Tabela de coeficientes normalizados para filtro Chebyshev com $0,5\text{ dB}$ de \textit{ripple} \cite{schuartz2026slides, ludwig2000rf}.}
-    \label{Tab:tabela1}
-\end{table}
+Definidos os parâmetros de projeto ($f_0 = 6{,}5\text{ GHz}$, $BW = 500\text{ MHz}$ e aproximação Chebyshev de ordem $N = 5$ com $0{,}5\text{ dB}$ de \textit{ripple}), extraíram-se os coeficientes normalizados do protótipo passa-baixas a partir da literatura de referência e do material de aula \cite{ludwig2000rf, schuartz2026slides}, resumidos na Tabela~\ref{tab:coeficientes_chebyshev}.
 
 \begin{table}[htbp]
     \centering
     \footnotesize
-    \caption{Coeficientes normalizados do protótipo passa-baixas Chebyshev ($0,5\text{ dB}$ de \textit{ripple}, $N = 5$) \cite{ludwig2000rf, schuartz2026slides}.}
+    \caption{Coeficientes normalizados do protótipo passa-baixas Chebyshev ($0{,}5\text{ dB}$ de \textit{ripple}, $N = 5$) \cite{ludwig2000rf, schuartz2026slides}.}
     \label{tab:coeficientes_chebyshev}
+    \resizebox{\columnwidth}{!}{%
     \begin{tabular}{cccccc}
         \hline
         \textbf{$N$} & \textbf{$g_1$} & \textbf{$g_2$} & \textbf{$g_3$} & \textbf{$g_4$} & \textbf{$g_5$} \\
         \hline
-        5 & $1,7058$ & $1,2296$ & $2,5408$ & $1,2296$ & $1,7058$ \\
+        5 & $1{,}7058$ & $1{,}2296$ & $2{,}5408$ & $1{,}2296$ & $1{,}7058$ \\
         \hline
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
 
-
-
-Com os valores obtidos na Tabela~\ref{tab:coeficientes_chebyshev}, realizaram-se os cálculos de dimensionamento para determinar os valores a serem atribuídos a cada componente:
-
+Inicialmente, determinaram-se as frequências de corte inferior e superior, a frequência angular central e a largura de banda angular:
 \begin{align}
-    f_L &= f_0 - \frac{BW_{\text{Hz}}}{2} = 6,25\text{ GHz} \\
-    f_U &= f_0 + \frac{BW_{\text{Hz}}}{2} = 6,75\text{ GHz} \\
-    \omega_0 &= 2\pi f_0 \approx 4,0841 \times 10^{10}\text{ rad/s} \\
-    BW_{\text{rad}} &= 2\pi BW_{\text{Hz}} \approx 3,1416 \times 10^{9}\text{ rad/s}
+    f_L &= f_0 - \frac{BW}{2} = 6{,}25\text{ GHz}, \\
+    f_U &= f_0 + \frac{BW}{2} = 6{,}75\text{ GHz}, \\
+    \omega_0 &= 2\pi f_0 \approx 4{,}0841 \times 10^{10}\text{ rad/s}, \\
+    BW_{\text{rad}} &= 2\pi BW \approx 3{,}1416 \times 10^{9}\text{ rad/s}.
 \end{align}
 
-Em seguida, realiza-se a desnormalização de impedância do protótipo passa-baixas para $R_G = 50~\Omega$, multiplicando os elementos indutivos ímpares ($g_1, g_3, g_5$) por $R_G$ e dividindo os elementos capacitivos pares ($g_2, g_4$) por $R_G$:
+Em seguida, realizou-se o escalonamento de impedância do protótipo passa-baixas para $R_G = 50~\Omega$ (ainda normalizado em frequência para $\omega_c = 1\text{ rad/s}$), multiplicando os elementos indutivos série ($g_1, g_3, g_5$) por $R_G$ e dividindo os elementos capacitivos paralelos ($g_2, g_4$) por $R_G$:
 \begin{align}
-    \tilde{L}_1 &= \tilde{L}_5 = g_1 R_G = 85,29\text{ H} \\
-    \tilde{C}_2 &= \tilde{C}_4 = \frac{g_2}{R_G} = 24,592\text{ mF} \\
-    \tilde{L}_3 &= g_3 R_G = 127,04\text{ H}
+    \tilde{L}_1 &= \tilde{L}_5 = g_1 R_G = 85{,}29~\Omega \quad (\text{ou }\text{H}\cdot\text{rad/s}), \\
+    \tilde{C}_2 &= \tilde{C}_4 = \frac{g_2}{R_G} = 24{,}592\text{ mS} \quad (\text{ou }\text{mF}\cdot\text{rad/s}), \\
+    \tilde{L}_3 &= g_3 R_G = 127{,}04~\Omega \quad (\text{ou }\text{H}\cdot\text{rad/s}).
 \end{align}
 
-Por fim, aplica-se a transformação em frequência de passa-baixas para passa-faixa. Para os estágios série ($k = 1, 3, 5$), os valores dos indutores e capacitores são dados por:
+A partir dos elementos escalonados em impedância, aplicou-se a transformação de frequência de passa-baixas para passa-faixa \cite{ludwig2000rf}. Para os estágios ressonantes em série ($k = 1, 3, 5$), os valores de indutância e capacitância são dados por:
 \begin{align}
-    L_1 &= L_5 = \frac{\tilde{L}_1}{BW_{\text{rad}}} = 27,15\text{ nH} \\
-    C_1 &= C_5 = \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{L}_1} = 22,08\text{ fF} \\
-    L_3 &= \frac{\tilde{L}_3}{BW_{\text{rad}}} = 40,44\text{ nH} \\
-    C_3 &= \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{L}_3} = 14,83\text{ fF}
+    L_1 &= L_5 = \frac{\tilde{L}_1}{BW_{\text{rad}}} = 27{,}15\text{ nH}, \\
+    C_1 &= C_5 = \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{L}_1} = 22{,}08\text{ fF}, \\
+    L_3 &= \frac{\tilde{L}_3}{BW_{\text{rad}}} = 40{,}44\text{ nH}, \\
+    C_3 &= \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{L}_3} = 14{,}83\text{ fF}.
 \end{align}
 
-Para os estágios em paralelo (\textit{shunt}, $k = 2, 4$), os componentes ressonantes são obtidos por:
+Para os estágios ressonantes em paralelo (\textit{shunt}, $k = 2, 4$), os componentes são obtidos por:
 \begin{align}
-    C_2 &= C_4 = \frac{\tilde{C}_2}{BW_{\text{rad}}} = 7,828\text{ pF} \\
-    L_2 &= L_4 = \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{C}_2} = 76,59\text{ pH}
+    C_2 &= C_4 = \frac{\tilde{C}_2}{BW_{\text{rad}}} = 7{,}828\text{ pF}, \\
+    L_2 &= L_4 = \frac{BW_{\text{rad}}}{\omega_0^2 \tilde{C}_2} = 76{,}59\text{ pH}.
 \end{align}
 
-
-
-Os valores calculados para cada componente estão resumidos na Tabela~\ref{tab:components}.
+Os valores dimensionados para cada estágio e suas respectivas instâncias no \textit{Cadence Virtuoso} estão sintetizados na Tabela~\ref{tab:components}, enquanto o circuito esquemático implementado é exibido na Figura~\ref{fig:filtro_uwb_6g5}.
 
 \begin{table}[htbp]
     \centering
     \footnotesize
-    \caption{Valores dimensionados dos componentes do filtro passa-faixa ($f_0 = 6,5\text{ GHz}$, $BW = 500\text{ MHz}$) e correspondência com o esquemático.}
+    \caption{Valores dimensionados dos componentes do filtro passa-faixa ($f_0 = 6{,}5\text{ GHz}$, $BW = 500\text{ MHz}$) e correspondência com as instâncias no Cadence.}
     \label{tab:components}
+    \resizebox{\columnwidth}{!}{%
     \begin{tabular}{cccc}
         \hline
-        \textbf{Estágio ($k$)} & \textbf{Esquemático} & \textbf{Indutor} & \textbf{Capacitor} \\
+        \textbf{Estágio ($k$)} & \textbf{Instâncias no Cadence} & \textbf{Indutor} & \textbf{Capacitor} \\
         \hline
-        1 (Série)    & \texttt{L0, C0} & $27,15\text{ nH}$ & $22,08\text{ fF}$ \\
-        2 (Paralelo) & \texttt{L1, C1} & $76,59\text{ pH}$ & $7,828\text{ pF}$ \\
-        3 (Série)    & \texttt{L2, C2} & $40,44\text{ nH}$ & $14,83\text{ fF}$ \\
-        4 (Paralelo) & \texttt{L3, C3} & $76,59\text{ pH}$ & $7,828\text{ pF}$ \\
-        5 (Série)    & \texttt{L4, C4} & $27,15\text{ nH}$ & $22,08\text{ fF}$ \\
+        1 (Série)    & \texttt{L0, C0} & $27{,}15\text{ nH}$ & $22{,}08\text{ fF}$ \\
+        2 (Paralelo) & \texttt{L1, C1} & $76{,}59\text{ pH}$ & $7{,}828\text{ pF}$ \\
+        3 (Série)    & \texttt{L2, C2} & $40{,}44\text{ nH}$ & $14{,}83\text{ fF}$ \\
+        4 (Paralelo) & \texttt{L3, C3} & $76{,}59\text{ pH}$ & $7{,}828\text{ pF}$ \\
+        5 (Série)    & \texttt{L4, C4} & $27{,}15\text{ nH}$ & $22{,}08\text{ fF}$ \\
         \hline
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
 
- A modelagem do circuito do filtro foi implementada no \textit{Cadence Virtuoso}, conforme mostrado na Figura~\ref{fig:filtro_uwb_6g5}.
-
-
- \begin{figure}[htbp]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=\columnwidth]{Method/Fig/filtro_uwb_6g5.png}
-    \caption{Esquemático do filtro passa-faixa UWB em $6,5\text{ GHz}$ implementado no \textit{Cadence Virtuoso}.}
+    \includegraphics[width=\linewidth]{Method/Fig/filtro_uwb_6g5.png}
+    \caption{Esquemático do filtro passa-faixa em $6{,}5\text{ GHz}$ implementado no \textit{Cadence Virtuoso}.}
     \label{fig:filtro_uwb_6g5}
 \end{figure}
 
 \subsection{Configuração das Simulações no ADE Maestro}
 
-Após a definição dos valores dos componentes do filtro, implementaram-se diferentes configurações de teste no ambiente \textit{Cadence Virtuoso} (ADE Maestro) para validar o desempenho linear e não linear do circuito, conforme as diretrizes estabelecidas no roteiro da atividade \cite{Filter1}.
+Com o esquemático implementado, configuraram-se as análises no ambiente \textit{Cadence Virtuoso} (ADE Maestro) para validar o desempenho linear e não linear do filtro, conforme as diretrizes do roteiro \cite{Filter1}.
 
 \subsubsection{Análise de Resposta em Frequência (AC) e Polos e Zeros (PZ)}
 
-Para a caracterização linear em frequência, empregou-se o esquemático da Figura~\ref{fig:filtro_uwb_6g5}, alimentado por uma fonte senoidal ideal (\texttt{vsin}, instância \texttt{V0}) da biblioteca \texttt{analogLib} com amplitude AC unitária ($1\text{ V}$) em série com o resistor de fonte $R_0 = 50~\Omega$, e terminado por uma carga resistiva $R_L = 50~\Omega$ no nó de saída $V_{\text{out}}$ (\texttt{/net10}) \cite{Filter1}. No ADE Maestro, configurou-se a simulação \texttt{ac} com varredura logarítmica de frequência de $5\text{ GHz}$ a $8\text{ GHz}$ e resolução de $5000$ pontos por década, extraindo-se a magnitude linear e em decibéis ($\text{dB20}$) da tensão no nó \texttt{/net10} para avaliar a largura de banda, a perda de inserção (\textit{insertion loss}), o \textit{ripple} na banda passante e a atenuação fora da banda \cite{Filter1}.
+Para a análise linear em frequência, empregou-se o esquemático da Figura~\ref{fig:filtro_uwb_6g5}, alimentado por uma fonte senoidal ideal (\texttt{vsin}, instância \texttt{V0}) da biblioteca \texttt{analogLib} com amplitude AC unitária ($1\text{ V}$) em série com o resistor de fonte $R_0 = 50~\Omega$, e terminado por uma carga resistiva $R_L = 50~\Omega$ no nó de saída $V_{\text{out}}$ (\texttt{/net10}) \cite{Filter1}. No ADE Maestro, configurou-se a simulação \texttt{ac} com varredura logarítmica de frequência de $5\text{ GHz}$ a $8\text{ GHz}$ e resolução de $5000$ pontos por década, extraindo-se a magnitude linear e em decibéis ($\text{dB20}$) da tensão no nó \texttt{/net10} para avaliar a largura de banda, a perda de inserção (\textit{insertion loss}), o \textit{ripple} na banda passante e a atenuação fora da banda \cite{Filter1}.
 
 De forma complementar, manteve-se a mesma topologia de circuito para executar a análise de polos e zeros (\texttt{pz}), definindo a saída de tensão entre o nó positivo \texttt{/net10} e a referência \texttt{/gnd!}, com excitação pela fonte \texttt{/V0} e frequência de avaliação dos componentes em $1\text{ Hz}$ \cite{Filter1}. Essa etapa permite inspecionar a distribuição dos polos e zeros no plano complexo $s$ e confirmar o comportamento característico da aproximação de Chebyshev de quinta ordem \cite{Filter1}.
 
 \subsubsection{Análise de Parâmetros de Espalhamento (SP)}
 
-Para avaliar a transferência de potência e o casamento de impedância em alta frequência, a excitação de tensão (\texttt{vsin} e $R_0$) e a resistência de carga ($R_L$) foram desativadas e substituídas por portas de RF (\texttt{port}) da biblioteca \texttt{analogLib}, ambas configuradas com impedância de referência de $50~\Omega$, conforme ilustrado na Figura~\ref{fig:filtro_sp} \cite{Filter1}. Na entrada, o resistor $R_0$ foi contornado para que a impedância interna de \texttt{PORT0} atue diretamente como terminação da fonte.
+Para analisar a transferência de potência e o casamento de impedância em alta frequência, a fonte de tensão (\texttt{vsin} e $R_0$) e a carga resistiva ($R_L$) foram substituídas por portas de RF (\texttt{port}) da biblioteca \texttt{analogLib}, ambas configuradas com impedância de referência de $50~\Omega$, conforme ilustrado na Figura~\ref{fig:filtro_sp} \cite{Filter1}. Na entrada, o resistor $R_0$ foi removido para que a impedância interna de \texttt{PORT0} atue diretamente como terminação da fonte.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\columnwidth]{Method/Fig/filtro_sp.png}
+    \includegraphics[width=\linewidth]{Method/Fig/filtro_sp.png}
     \caption{Esquemático adaptado com portas de $50~\Omega$ (\texttt{PORT0} e \texttt{PORT1}) para a simulação de parâmetros S no \textit{Cadence Virtuoso}.}
     \label{fig:filtro_sp}
 \end{figure}
 
-No ambiente ADE Maestro, adicionou-se a análise \texttt{sp} selecionando o par de portas na ordem entrada-saída (\texttt{/PORT0 /PORT1}) e aplicando uma varredura linear de frequência de $5\text{ GHz}$ a $8\text{ GHz}$ com $1000$ pontos \cite{Filter1}. A partir dessa simulação, extraíram-se as curvas de magnitude (em $\text{dB20}$) dos parâmetros $S_{21}$, $S_{11}$, $S_{22}$ e $S_{12}$, bem como a resposta de fase (em graus) do coeficiente de transmissão direta $S_{21}$ \cite{Filter1}.
+No ambiente ADE Maestro, adicionou-se a análise \texttt{sp} selecionando o par de portas na ordem entrada-saída (\texttt{/PORT0 /PORT1}) e aplicando uma varredura linear de frequência de $5\text{ GHz}$ a $8\text{ GHz}$ com $1000$ pontos \cite{Filter1}. A partir dessa simulação, extraíram-se as curvas de magnitude (em $\text{dB20}$) dos parâmetros $S_{21}$, $S_{11}$, $S_{22}$ e $S_{12}$, bem como a resposta de fase (em graus) e o atraso de grupo do coeficiente de transmissão direta $S_{21}$ \cite{Filter1}.
 
-\subsubsection{Avaliação Não Linear e Rejeição de Banda Adjacente (Envelope)}
+\subsubsection{Avaliação Não Linear e Rejeição de Banda Adjacente (Envelope e HB)}
 
-Para verificar a capacidade do filtro em suprimir interferências e produtos de intermodulação em cenários reais de transmissão, incluiu-se um estágio não linear composto por um amplificador de potência (\texttt{PA\_PB} da biblioteca \texttt{rfLib}) com impedâncias de entrada e saída de $50~\Omega$ e ponto de compressão de $1\text{ dB}$ na saída ($P_{1\text{dB}}$) de $5\text{ dBm}$ \cite{Filter1}. O circuito foi excitado por um sinal modulado com potência média controlada pela variável $P_{\text{in,dBm}}$ (ajustada em $0\text{ dBm}$ para forçar a operação não linear do amplificador) e terminado por uma porta de carga de $50~\Omega$, inserindo-se sondas de potência (\texttt{wprobe} da \texttt{rfLib}) na entrada e na saída para o monitoramento espectral \cite{Filter1}.
-
-Por fim, executou-se a simulação \texttt{envlp} (\textit{Envelope Following Analysis}) no modo \textit{Wireless} (com $1$ tom fundamental, $5$ harmônicas e modo rápido \texttt{level2}), permitindo extrair a Densidade Espectral de Potência (PSD), a Razão de Potência no Canal Adjacente (ACPR), o diagrama de constelação e a Magnitude do Vetor de Erro (EVM) antes e após a filtragem passa-faixa \cite{Filter1}.
-
-
-\subsubsection{Avaliação Não Linear e Rejeição de Banda Adjacente}
-
-Para validar o comportamento do filtro diante de distorções não lineares e interferências adjacentes, montou-se o ambiente de teste da Figura~\ref{fig:tb_desafio}, composto por uma fonte modulada (\texttt{msource}, instância \texttt{W0} da \texttt{rfLib}) configurada na portadora de $6,5\text{ GHz}$ com modulação OFDM 16-QAM ($512$ símbolos, taxa de $48\text{ Mbps}$ a $108\text{ Mbps}$) e potência média controlada pela variável $P_{\text{in,dBm}}$ \cite{Filter1}. O sinal excita um amplificador de potência (\texttt{PA}, instância \texttt{I4} da \texttt{rfLib}) com impedâncias de $50~\Omega$ e ponto de compressão $P_{1\text{dB}} = 5\text{ dBm}$, cuja saída alimenta diretamente o filtro passa-faixa terminado em \texttt{PORT1} ($50~\Omega$).
+Para validar o comportamento do filtro diante de distorções não lineares e interferências adjacentes, montou-se o ambiente de teste da Figura~\ref{fig:tb_desafio}, composto por uma fonte modulada (\texttt{msource}, instância \texttt{W0} da \texttt{rfLib}) configurada na portadora de $6{,}5\text{ GHz}$ com modulação OFDM 16-QAM ($512$ símbolos, taxa de $48\text{ Mbps}$ a $108\text{ Mbps}$) e potência média controlada pela variável $P_{\text{in,dBm}}$ (ajustada em $0\text{ dBm}$ para forçar a operação não linear do estágio seguinte) \cite{Filter1}. O sinal excita um amplificador de potência (\texttt{PA\_PB}, instância \texttt{I4} da \texttt{rfLib}) com ganho de $27{,}2\text{ dB}$, impedâncias de entrada e saída de $50~\Omega$ e ponto de compressão de $1\text{ dB}$ na saída ($P_{1\text{dB}} = 5\text{ dBm}$), cuja saída alimenta diretamente o filtro passa-faixa terminado em \texttt{PORT1} ($50~\Omega$).
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\columnwidth]{Method/Fig/tb_desafio.png}
-    \caption{Esquemático do desafio não linear com fonte modulada (\texttt{W0}), amplificador de potência (\texttt{PA}), filtro de 5ª ordem e sondas \texttt{WPRB0}/\texttt{WPRB1}.}
+    \includegraphics[width=\linewidth]{Method/Fig/tb_desafio.png}
+    \caption{Esquemático do desafio não linear com fonte modulada (\texttt{W0}), amplificador de potência (\texttt{PA\_PB}), filtro de 5ª ordem e sondas \texttt{WPRB0} (fonte), \texttt{WPRB1} (pós-PA) e \texttt{WPRB2} (pós-filtro).}
     \label{fig:tb_desafio}
 \end{figure}
 
-Inseriram-se sondas sem fio (\texttt{wprobe}, instâncias \texttt{WPRB0} na entrada e \texttt{WPRB1} na saída) para executar a análise \texttt{envlp} (\textit{Wireless}, $1$ tom, $5$ harmônicas, modo rápido \texttt{level2}), extraindo a Densidade Espectral de Potência (PSD), a Razão de Potência no Canal Adjacente (ACPR), a constelação, o EVM e a função CCDF \cite{Filter1}. Complementarmente, aplicou-se uma análise de balanço harmônico multi-tom (\texttt{hb\_mt}) com tons em $6,5\text{ GHz}$ (portadora) e $6,0\text{ GHz}$ (interferente) para quantificar a rejeição espectral fora da banda.
+Inseriram-se três sondas sem fio (\texttt{wprobe}: \texttt{WPRB0} na saída da fonte, \texttt{WPRB1} na saída do PA e \texttt{WPRB2} na saída do filtro) para executar a análise \texttt{envlp} (\textit{Envelope Following Analysis}) no modo \textit{Wireless} ($1$ tom fundamental, $5$ harmônicas e modo rápido \texttt{level2}), extraindo a Densidade Espectral de Potência (PSD), a Razão de Potência no Canal Adjacente (ACPR), os diagramas de constelação, a Magnitude do Vetor de Erro (EVM) e a função CCDF antes e após a filtragem passa-faixa \cite{Filter1}. Complementarmente, aplicou-se uma análise de balanço harmônico multi-tom (\texttt{hb\_mt}) com tons em $6{,}5\text{ GHz}$ (portadora) e $6{,}0\text{ GHz}$ (interferente adjacente) para quantificar a rejeição espectral dos produtos de intermodulação e harmônicas fora da banda.

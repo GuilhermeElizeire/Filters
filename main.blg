@@ -7,36 +7,36 @@ Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: referencias.bib
 Warning--entry type for "ieee802154" isn't style-file defined
 --line 619 of file referencias.bib
-You've used 7 entries,
+You've used 6 entries,
             1876 wiz_defined-function locations,
-            515 strings with 4625 characters,
-and the built_in function-call counts, 951 in all, are:
-= -- 87
-> -- 32
+            510 strings with 4379 characters,
+and the built_in function-call counts, 835 in all, are:
+= -- 76
+> -- 28
 < -- 0
-+ -- 15
-- -- 8
-* -- 47
-:= -- 157
++ -- 13
+- -- 7
+* -- 37
+:= -- 134
 add.period$ -- 9
-call.type$ -- 7
-change.case$ -- 8
+call.type$ -- 6
+change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 42
-empty$ -- 119
-format.name$ -- 8
-if$ -- 230
+cite$ -- 6
+duplicate$ -- 36
+empty$ -- 107
+format.name$ -- 7
+if$ -- 205
 int.to.chr$ -- 0
-int.to.str$ -- 7
+int.to.str$ -- 6
 missing$ -- 4
-newline$ -- 26
-num.names$ -- 7
+newline$ -- 24
+num.names$ -- 6
 pop$ -- 33
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 17
+skip$ -- 15
 stack$ -- 0
 substring$ -- 0
 swap$ -- 2
@@ -45,7 +45,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 7
-width$ -- 8
-write$ -- 63
+while$ -- 6
+width$ -- 7
+write$ -- 54
 (There was 1 warning)
